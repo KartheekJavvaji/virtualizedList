@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
@@ -56,7 +55,7 @@ module.exports = {
       }
     ]
   },
-  devtool: '#inline-source-map',
+  // devtool: '#inline-source-map',
   resolve: {
     extensions: ['*', '.js', '.jsx'],
     modules: [
@@ -68,15 +67,20 @@ module.exports = {
     // }
   },
   output: {
-    path: `${__dirname}/dist`,
     publicPath: '/',
-    filename: 'bundle.js'
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
-  devServer: {
-    contentBase: './dist',
-    hot: true
+    path: path.resolve(__dirname, 'dist')
+    // filename: '[name].[hash].js'
   }
+  // plugins: [
+  //   new webpack.HotModuleReplacementPlugin()
+  // ],
+  // devServer: {
+  //   contentBase: './dist',
+  //   hot: true
+  // }
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all'
+  //   }
+  // }
 }
