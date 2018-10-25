@@ -45,6 +45,9 @@ class AlbumList extends React.Component {
           listItems={parsedAlbumList}
           maxBufferItemsToRender={5}
         />
+        {/* {
+          parsedAlbumList.map(album => (<Album key={album.id} {...album} />))
+        } */}
       </React.Fragment>
     )
   }
