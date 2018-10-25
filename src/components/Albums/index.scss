@@ -1,0 +1,15 @@
+.album {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .figure {
+    width: 250px;
+    height: 250px;
+  }
+
+  .figure-caption {
+    max-width: calc(100% - 300px);
+  }
+}

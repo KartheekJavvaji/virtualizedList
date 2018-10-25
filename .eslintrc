@@ -1,0 +1,21 @@
+{
+  "parser": "babel-eslint",
+  "settings": {
+    "react": {
+      "version": "16.4.2"
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "document": true
+  },
+  "extends": ["plugin:react/recommended", "standard"],
+  "rules": {
+    "lines-between-class-members": "error",
+    "react/destructuring-assignment": "error"
+  }
+}
