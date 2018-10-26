@@ -18,7 +18,7 @@ module.exports = {
   output: {
     publicPath: '',
     path: path.resolve(__dirname, 'docs'),
-    filename: '[name].[hash].js'
+    filename: '[name].[chunkhash].js'
   },
   optimization: {
     runtimeChunk: 'single',
