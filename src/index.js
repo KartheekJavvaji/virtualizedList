@@ -18,4 +18,6 @@ ReactDOM.render(
   </Provider>
   , document.getElementById('app'))
 
-module.hot.accept()
+if (module && module.hot) {
+  module.hot.accept()
+}
