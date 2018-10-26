@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import Loader from 'atoms/Loader'
 import VirtualizedList from 'molecules/VirtualizedList'
+import { EMPTY_ARRAY } from 'app.constants'
 import Album from './Album'
 
 import './index.scss'
@@ -28,6 +29,10 @@ class AlbumList extends React.Component {
         thumbnailUrl: PropTypes.string.isRequired
       })
     )
+  }
+
+  static defaultProps = {
+    albumList: EMPTY_ARRAY
   }
 
   render () {

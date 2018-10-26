@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { AlbumsContainer } from 'containers/Albums'
+import './index.css'
 
 const App = () => (
   <div className="container">

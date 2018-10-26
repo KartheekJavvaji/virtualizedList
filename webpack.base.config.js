@@ -1,4 +1,5 @@
 const path = require('path')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, './src'),
@@ -52,6 +53,10 @@ module.exports = {
       {
         test: /\.(gif|svg|jpg|png)$/,
         loader: 'file-loader' // https://www.npmjs.com/package/file-loader
+      },
+      {
+        test: /\.worker\.js$/,
+        use: { loader: 'worker-loader' }
       }
     ]
   },
@@ -67,10 +72,27 @@ module.exports = {
     // }
   },
   output: {
-    publicPath: '/',
+    publicPath: '',
     path: path.resolve(__dirname, 'dist')
     // filename: '[name].[hash].js'
-  }
+  },
+  plugins: [
+    new WorkboxPlugin.GenerateSW({
+      swDest: 'sw.js',
+      clientsClaim: true,
+      skipWaiting: true,
+      runtimeCaching: [{
+        urlPattern: /https:/,
+        handler: 'staleWhileRevalidate',
+        options: {
+          cacheName: 'cached-images',
+          expiration: {
+            maxEntries: 30
+          }
+        }
+      }]
+    })
+  ]
   // plugins: [
   //   new webpack.HotModuleReplacementPlugin()
   // ],

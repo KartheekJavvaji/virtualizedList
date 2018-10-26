@@ -1,15 +1,19 @@
 const path = require('path')
 const webpack = require('webpack')
-const baseWebpackConfig = require('./webpack.base.config')
+const CleanPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const baseWebpackConfig = require('./webpack.base.config')
 
 module.exports = {
   ...baseWebpackConfig,
   plugins: [
+    new CleanPlugin(['docs']),
     new HtmlWebpackPlugin({
-      template: 'devServer/index.html'
+      template: 'src/index.html'
     }),
-    new webpack.HashedModuleIdsPlugin() // so that file hashes don't change unexpectedly
+    new webpack.HashedModuleIdsPlugin(), // so that file hashes don't change unexpectedly
+    ...baseWebpackConfig.plugins
   ],
   output: {
     publicPath: '',
