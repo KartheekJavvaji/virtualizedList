@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Loader from 'atoms/Loader'
 import VirtualizedList from 'molecules/VirtualizedList'
 import { EMPTY_ARRAY } from 'app.constants'
 import Album from './Album'
@@ -16,6 +15,13 @@ const parseAlbumList = ({
   title: `${title} ${title}`,
   url: `https://picsum.photos/1200/1200/?image=${Math.floor(Math.random() * 200) + 300}` // [300...500]
 })
+
+const ContentPlaceholder = () => (
+  <div className="content-placeholder">
+    <div className="content-placeholder-image" />
+    <div className="content-placeholder-description" />
+  </div>
+)
 
 class AlbumList extends React.Component {
   static propTypes = {
@@ -37,12 +43,21 @@ class AlbumList extends React.Component {
 
   render () {
     const { fetching, albumList } = this.props
-    if (fetching) return <Loader />
+
+    if (fetching || (albumList.length === 0 && !navigator.onLine)) {
+      return (
+        <React.Fragment>
+          <ContentPlaceholder />
+          <ContentPlaceholder />
+          <ContentPlaceholder />
+          <ContentPlaceholder />
+        </React.Fragment>
+      )
+    }
 
     const parsedAlbumList = albumList.map(parseAlbumList)
     return (
       <React.Fragment>
-        <h1 className="display-3" >Virtualized List</h1>
         <VirtualizedList
           isWindowScroll
           heightOfItem={300}
@@ -51,6 +66,7 @@ class AlbumList extends React.Component {
           maxBufferItemsToRender={5}
         />
         {/* {
+          If this is been used instead of VirtualizedList, the DOM will be extremely heavy and the browser will be hung
           parsedAlbumList.map(album => (<Album key={album.id} {...album} />))
         } */}
       </React.Fragment>

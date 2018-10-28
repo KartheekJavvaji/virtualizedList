@@ -8,10 +8,11 @@ const Album = ({ title, style, url }) => (
   <div className='album' style={style}>
     <ProgressiveImage
       rounded
+      wrapperClassName="shadow-lg"
       className="img-fluid"
       src={url}
     />
-    <h3 className="figure-caption ml-5">{title}</h3>
+    <p className="text-first-letter-uppercase font-italic ml-5 caption">{title}</p>
   </div>
 )
 

@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { AlbumList } from 'components/Albums'
+import Feature from './Feature'
+import { FEATURE_LIST } from './albums.constants'
 import { fetchAlbums } from './albums.actions'
+
+import './index.scss'
 
 class AlbumContainer extends React.PureComponent {
   static propTypes = {
@@ -28,11 +32,33 @@ class AlbumContainer extends React.PureComponent {
   render () {
     const { fetching, albumList } = this.props
     return (
-      <div>
-        <AlbumList
-          fetching={fetching}
-          albumList={albumList}
-        />
+      <div className="album-container">
+        <div className="features-container">
+          <div className="features-wrapper">
+            <div className="features">
+              <h1 className="text-center display-4">FEATURES</h1>
+              {FEATURE_LIST.map(({
+                id,
+                title,
+                desc,
+                type
+              }) => (
+                <Feature
+                  key={id}
+                  type={type}
+                  title={title}
+                  desc={desc}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="album-list">
+          <AlbumList
+            fetching={fetching}
+            albumList={albumList}
+          />
+        </div>
       </div>
     )
   }

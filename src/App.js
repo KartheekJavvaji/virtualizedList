@@ -1,10 +1,10 @@
 import React from 'react'
 
 import { AlbumsContainer } from 'containers/Albums'
-import './index.css'
+import './index.scss'
 
 const App = () => (
-  <div className="container">
+  <div className="container-fluid">
     <AlbumsContainer />
   </div>
 )

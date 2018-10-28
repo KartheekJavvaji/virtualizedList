@@ -10,13 +10,14 @@ module.exports = {
   plugins: [
     new CleanPlugin(['dist']),
     new HtmlWebpackPlugin({
+      favicon: 'favicon.ico',
       template: 'src/index.html'
     }),
     new webpack.HotModuleReplacementPlugin(),
     ...baseWebpackConfig.plugins
   ],
   devServer: {
-    contentBase: './devServer'
+    contentBase: './dist'
     // hot: true
   }
 }

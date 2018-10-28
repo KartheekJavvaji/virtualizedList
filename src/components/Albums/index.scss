@@ -3,13 +3,34 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  border-bottom: 1px solid #eae8db;
 
   .figure {
     width: 250px;
     height: 250px;
+    margin: 0;
   }
 
-  .figure-caption {
+  .caption {
     max-width: calc(100% - 300px);
+    color: #8e8d89;
   }
+}
+
+@keyframes loading {
+  0% {
+    background-color: rgba(165, 165, 165, 0.1)
+  }
+  50% {
+      background-color: rgba(165, 165, 165, 0.3)
+  }
+  100% {
+      background-color: rgba(165, 165, 165, 0.1)
+  }
+}
+
+.content-placeholder {
+  height: 250px;
+  margin: 25px 0;
+  animation: loading 1s infinite ease-in-out
 }

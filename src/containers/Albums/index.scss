@@ -1,0 +1,59 @@
+.album-container {
+  display: flex;
+  position: relative;
+  height: 100%;
+
+  .features-container {
+    width: 400px;
+    margin: 0px 15px 0 -15px;
+
+    .features-wrapper {
+      position: sticky;
+      top: -70px;
+      color: #dcdcd6;
+
+      .features {
+        overflow: scroll;
+
+        .feature {
+          position: relative;
+          padding: 10px;
+          border: 1px solid #eae8db;
+          border-width: 1px 1px 0 0;
+
+          .title {
+            .badge {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              border-radius: 5px 0 0 0;
+              font-size: small;
+            }
+          }
+
+          .description {
+            color: #8e8d89;
+          }
+
+          &:nth-of-type(1) {
+            border-top-right-radius: 5px;
+          }
+
+          &:last-child {
+            border-bottom-right-radius: 5px;
+            border-width: 1px 1px 1px 0;
+            .title {
+              .badge {
+                border-radius: 5px 0 4px 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .album-list {
+    width: calc(100% - 400px);
+  }
+}

@@ -10,6 +10,7 @@ module.exports = {
   plugins: [
     new CleanPlugin(['docs']),
     new HtmlWebpackPlugin({
+      favicon: 'favicon.ico',
       template: 'src/index.html'
     }),
     new webpack.HashedModuleIdsPlugin(), // so that file hashes don't change unexpectedly
