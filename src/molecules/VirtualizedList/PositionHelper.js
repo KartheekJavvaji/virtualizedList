@@ -11,7 +11,9 @@ class PositionHelper {
 
   getNewScrollPosition (listRef) {
     if (this.isWindowScroll) {
-      return (window.scrollY - listRef.screenTop) / this.heightOfItem
+      // Firefox has screenY instead of screenTop
+      const screenTop = listRef.screenTop ? listRef.screenTop : listRef.screenY
+      return (window.scrollY - screenTop) / this.heightOfItem
     }
     return listRef.scrollTop / this.heightOfItem
   }
