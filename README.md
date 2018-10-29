@@ -1,1 +1,2 @@
-# virtualizedList
+# Virtualized List
+![](virtualizedListCapture.gif)
