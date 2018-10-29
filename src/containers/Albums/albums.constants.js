@@ -14,10 +14,10 @@ export const FEATURE_LIST = [{
   id: '3',
   type: FEATURE_TYPES.PERFORMANCE,
   title: 'Services workers',
-  desc: 'Leveraging service workers and IndexDB, we can cache assets and js files along with API calls.'
+  desc: 'Using Workbox, which is a library written over service workers, we can cache assets and js files along with API calls.'
 }, {
   id: '4',
   type: FEATURE_TYPES.PERFORMANCE,
-  title: 'Chunked and Hashed',
-  desc: 'By splitting up the main.js and node_modules, we can skip downloading the node_modules again, when ever the main.js changes. This gets applied even to the node_modules, i.e. if any one of the node_modules gets updated, the entire vendor chunk has to be downloaded again. This can be avoided if we split even the node_modules. This will reduce the network usage of the user by time significantly.'
+  title: 'Code splitting',
+  desc: 'By splitting up the main.js and node_modules, we can skip downloading the node_modules again, whenever the main.js changes. This gets applied even to the node_modules, i.e. if any one of the node_modules gets updated, the entire vendor chunk has to be downloaded again. This can be avoided if we split the node_modules. This will reduce the network usage of the user significantly by time.'
 }]

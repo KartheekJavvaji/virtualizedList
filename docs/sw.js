@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.b8424f2d1595cf506d28aca195792901.js"
+  "precache-manifest.2c01ad5a11473d93835fc0f8ed133460.js"
 );
 
 workbox.skipWaiting();
@@ -29,4 +29,4 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/https:/, workbox.strategies.staleWhileRevalidate({ "cacheName":"cached-images", plugins: [new workbox.expiration.Plugin({"maxEntries":30,"purgeOnQuotaError":false})] }), 'GET');
+workbox.routing.registerRoute(/https:/, workbox.strategies.staleWhileRevalidate({ "cacheName":"cached-images", plugins: [new workbox.expiration.Plugin({"maxEntries":30,"maxAgeSeconds":18000,"purgeOnQuotaError":false})] }), 'GET');
