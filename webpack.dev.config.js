@@ -17,7 +17,7 @@ module.exports = {
     ...baseWebpackConfig.plugins
   ],
   devServer: {
-    contentBase: './dist'
-    // hot: true
+    contentBase: './dist',
+    hot: true
   }
 }

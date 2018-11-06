@@ -60,7 +60,6 @@ module.exports = {
       }
     ]
   },
-  // devtool: '#inline-source-map',
   resolve: {
     extensions: ['*', '.js', '.jsx'],
     modules: [
@@ -74,7 +73,6 @@ module.exports = {
   output: {
     publicPath: '',
     path: path.resolve(__dirname, 'dist')
-    // filename: '[name].[hash].js'
   },
   plugins: [
     new WorkboxPlugin.GenerateSW({
@@ -94,16 +92,4 @@ module.exports = {
       }]
     })
   ]
-  // plugins: [
-  //   new webpack.HotModuleReplacementPlugin()
-  // ],
-  // devServer: {
-  //   contentBase: './dist',
-  //   hot: true
-  // }
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: 'all'
-  //   }
-  // }
 }

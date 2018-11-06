@@ -11,7 +11,20 @@ module.exports = {
     new CleanPlugin(['docs']),
     new HtmlWebpackPlugin({
       favicon: 'favicon.ico',
-      template: 'src/index.html'
+      template: 'src/index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      },
+      inject: true
     }),
     new webpack.HashedModuleIdsPlugin(), // so that file hashes don't change unexpectedly
     ...baseWebpackConfig.plugins
