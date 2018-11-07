@@ -4,7 +4,6 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import ReduxPromise from 'redux-promise'
 
-import ErrorBoundary from 'atoms/ErrorBoundary'
 import App from './app'
 import reducers from './reducers'
 
@@ -22,10 +21,10 @@ ReactDOM.render(
   , document.getElementById('app'))
 
 if (module && module.hot) {
+  // Enable Webpack hot module replacement for reducers
   module.hot.accept('./reducers', () => {
     const nextRootReducer = require('./reducers/index')
     store.replaceReducer(nextRootReducer)
   })
   module.hot.accept()
-  // Enable Webpack hot module replacement for reducers
 }
