@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import ReduxPromise from 'redux-promise'
 
+import ErrorBoundary from 'atoms/ErrorBoundary'
 import App from './app'
 import reducers from './reducers'
 
