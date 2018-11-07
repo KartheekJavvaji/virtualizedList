@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { hot } from 'react-hot-loader'
 import { AlbumsContainer } from 'containers/Albums'
 import './index.scss'
 
@@ -9,4 +9,4 @@ const App = () => (
   </div>
 )
 
-export default App
+export default hot(module)(App)

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
+import ErrorBoundary from 'atoms/ErrorBoundary'
 import { AlbumList } from 'components/Albums'
 import Feature from './Feature'
 import { FEATURE_LIST } from './albums.constants'
@@ -54,10 +55,12 @@ class AlbumContainer extends React.PureComponent {
           </div>
         </div>
         <div className="album-list">
-          <AlbumList
-            fetching={fetching}
-            albumList={albumList}
-          />
+          <ErrorBoundary>
+            <AlbumList
+              fetching={fetching}
+              albumList={albumList}
+            />
+          </ErrorBoundary>
         </div>
       </div>
     )

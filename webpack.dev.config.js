@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanPlugin = require('clean-webpack-plugin')
 
@@ -13,7 +12,6 @@ module.exports = {
       favicon: 'favicon.ico',
       template: 'src/index.html'
     }),
-    new webpack.HotModuleReplacementPlugin(),
     ...baseWebpackConfig.plugins
   ],
   devServer: {
